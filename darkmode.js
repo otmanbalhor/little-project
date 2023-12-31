@@ -1,5 +1,5 @@
 
-export function ElementClass(ElementName, ClassName) {
+function ElementClass(ElementName, ClassName) {
 
     const element = document.createElement(ElementName);
     element.classList.add(ClassName);
