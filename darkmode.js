@@ -7,8 +7,8 @@ function ElementClass(ElementName, ClassName) {
     return element;
 }
 
-export const label = ElementClass('label','btn');
-export const input = ElementClass('input','btn__input'); 
+export const label = ElementClass('label','check-panier__btn');
+export const input = ElementClass('input','check-panier__panier__btn__input'); 
 input.type="checkbox";
 
 document.addEventListener('click',function(){

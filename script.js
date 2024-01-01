@@ -2,6 +2,7 @@ import { bakery } from "./objet.js";
 import { label, input } from "./darkmode.js";
 import { genererLiens } from "./footer.js";
 import { trie } from "./trie.js";
+import { panierLogo,popup,contenuPopup,paraPopup,buttonPopup } from "./panier.js";
 
 
 
@@ -13,21 +14,21 @@ function ElementClass(ElementName, ClassName) {
     return element;
 }
 
-/*function ElementId(ElementName, ElementId) {
-
-    const element = document.createElement(ElementName);
-    element.id = ElementId;
-
-}*/
-
 const header = document.querySelector("header");
+const divCheckPan = ElementClass('div','check-panier');
 const divHeader = ElementClass('div', 'title-logo');
 const logo = ElementClass('img', 'title-logo__logo');
 const title = ElementClass('h1', 'title-logo__title');
 title.innerText = 'SugarCraft Delights';
 
-header.append(label);
+header.append(divCheckPan);
+divCheckPan.append(label);
 label.append(input);
+divCheckPan.append(panierLogo);
+divCheckPan.append(popup);
+popup.append(contenuPopup);
+contenuPopup.append(paraPopup);
+contenuPopup.append(buttonPopup);
 header.append(divHeader);
 divHeader.append(logo);
 divHeader.append(title);
@@ -109,6 +110,7 @@ function tri(category) {
 
     main.innerHTML = '';
     
+    removeEventListenersTri();
 
     triButtons.forEach(button => {
         const clonedButton = button.cloneNode(true);
@@ -119,6 +121,14 @@ function tri(category) {
     });
     main.appendChild(fragment);
 
+    addEventListenerTri();
+}
+
+function removeEventListenersTri() {
+    triButtons.forEach(button => {
+        const clonedButton = button.cloneNode(true);
+        button.parentNode.replaceChild(clonedButton, button);
+    });
 }
 
 genererLiens();

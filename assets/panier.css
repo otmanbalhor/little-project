@@ -1,0 +1,19 @@
+body header .check-panier__panier {
+  cursor: pointer;
+}
+body header .check-panier__popup {
+  position: fixed;
+  transform: translate(-20%, -50%);
+  background-color: #000000;
+  color: #FFFFFF;
+  left: 80%;
+  padding: 20px;
+}
+body header .contenuPopup {
+  text-align: center;
+}
+
+#ClosePopup {
+  margin-top: 10px;
+  cursor: pointer;
+}/*# sourceMappingURL=panier.css.map */

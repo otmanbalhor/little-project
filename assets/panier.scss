@@ -1,0 +1,35 @@
+body {
+
+    header {
+        .check-panier {
+
+            &__panier{
+                cursor: pointer;
+            }
+            &__popup {
+                
+                position: fixed;
+                transform: translate(-20%, -50%);
+                background-color: #000000;
+                color: #FFFFFF;
+                left:80%;
+                padding: 20px;
+                //box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            }
+
+        }
+
+
+
+        .contenuPopup {
+            text-align: center;
+        }
+
+       
+    }
+} 
+
+#ClosePopup {
+            margin-top: 10px;
+            cursor: pointer;
+        }
