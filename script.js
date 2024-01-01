@@ -1,5 +1,5 @@
 import { bakery } from "./objet.js";
-import { label,input } from "./darkmode.js";
+import { label, input } from "./darkmode.js";
 import { genererLiens } from "./footer.js";
 import { trie } from "./trie.js";
 
@@ -38,21 +38,16 @@ main.classList.add('container')
 const divTri = ElementClass('div', 'tri');
 main.append(divTri);
 
-const btnAll = ElementClass('button','tri__btn');
-btnAll.innerHTML = "All";
-const btnEclair = ElementClass('button', 'tri__btn');
-btnEclair.innerHTML = "Eclair";
+const triButtons = ['All', 'Eclair', 'Cake', 'Tart', 'Macaron'].map(category => {
+    const button = ElementClass('button', 'tri__btn');
+    button.innerHTML = category;
+    button.dataset.category = category;
+    button.addEventListener('click', function () {
+        trie(category);
+    });
+    return button;
+});
 
-const btnCake = ElementClass('button', 'tri_btn');
-btnCake.innerHTML = "Cake";
-
-const btnTarte = ElementClass('button', 'tri_btn');
-btnTarte.innerHTML = "Tart";
-
-const btnMacaron = ElementClass('button', 'tri_btn');
-btnMacaron.innerHTML = "Macaron";
-
-const triButtons = [btnAll,btnEclair, btnCake, btnTarte, btnMacaron];
 triButtons.forEach(button => divTri.append(button));
 
 const sections = [];
@@ -67,8 +62,8 @@ bakery.forEach(element => {
     h2article.innerText = element.name;
     const para = ElementClass('p', 'card__article__para');
     para.innerText = element.description;
-    const divtriprix= ElementClass('div','card__article__dib')
-    const btnTri = ElementClass('button','card__article__div__tri')
+    const divtriprix = ElementClass('div', 'card__article__dib')
+    const btnTri = ElementClass('button', 'card__article__div__tri')
     btnTri.innerHTML = element.category;
     const prix = ElementClass('p', 'card__article__div__prix');
     prix.innerText = element.price;
@@ -83,7 +78,7 @@ bakery.forEach(element => {
     divtriprix.append(btnTri);
     divtriprix.append(prix);
 
-    btnTri.addEventListener('click',function(){
+    btnTri.addEventListener('click', function () {
         tri(element.category);
     });
 
@@ -91,36 +86,44 @@ bakery.forEach(element => {
 
 });
 
-function tri(categorie) {
+addEventListenerTri();
+
+function addEventListenerTri() {
+    triButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            trie(button.innerText);
+        });
+    });
+}
+
+function tri(category) {
+    const fragment = document.createDocumentFragment();
+
     sections.forEach(section => {
         const categorieCarte = section.querySelector('.card__article__div__tri').innerText;
-        if (categorie == categorieCarte) {
-            main.appendChild(section);
-        } else {
-            section.remove();
+
+        if (category === 'All' || category === categorieCarte) {
+            fragment.appendChild(section.cloneNode(true));
         }
     });
+
+    main.innerHTML = '';
+    
+
+    triButtons.forEach(button => {
+        const clonedButton = button.cloneNode(true);
+        clonedButton.addEventListener('click', function () {
+            tri(button.innerText);
+        });
+         fragment.appendChild(clonedButton);
+    });
+    main.appendChild(fragment);
+
 }
 
 genererLiens();
 
 
-btnCake.addEventListener('click',function(){
-    trie('Cake');
-});
 
-btnEclair.addEventListener('click',function(){
-    trie('Eclair');
-});
 
-btnTarte.addEventListener('click',function(){
-    trie('Tart');
-});
-
-btnMacaron.addEventListener('click',function(){
-    trie('Macaron');
-});
-btnAll.addEventListener('click',function(){
-    trie('All');
-});
 
