@@ -1,3 +1,6 @@
+body {
+  background-color: #be9782;
+}
 body .title-logo {
   display: flex;
   justify-content: center;
