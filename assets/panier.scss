@@ -2,19 +2,21 @@ body {
 
     header {
         .check-panier {
-
+            display: flex;
+            justify-content: end;
             &__panier{
                 cursor: pointer;
+                padding-right: 5%;
             }
             &__popup {
-                
                 position: fixed;
                 transform: translate(-20%, -50%);
                 background-color: #000000;
                 color: #FFFFFF;
-                left:80%;
+                top: 15%;
+                left:90%;
                 padding: 20px;
-                //box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             }
 
         }

@@ -1,0 +1,19 @@
+body {
+
+    .title-logo {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 5%;
+
+        &__title {
+
+        }
+
+        &__logo {
+            width: 5%;
+            height: 5%;
+        }
+    }
+
+}

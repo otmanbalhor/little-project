@@ -1,1 +1,10 @@
-/*# sourceMappingURL=header.css.map */
+body .title-logo {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 5%;
+}
+body .title-logo__logo {
+  width: 5%;
+  height: 5%;
+}/*# sourceMappingURL=header.css.map */

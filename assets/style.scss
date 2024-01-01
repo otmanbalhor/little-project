@@ -1,2 +1,67 @@
 @import 'panier.scss';
+@import 'header.scss';
 
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+    gap: 20px;
+
+    .tri{
+        display: flex;
+        justify-content: center;
+        gap:5px;
+        width: 100%;
+        &__btn{
+            padding: 0% 2% 0% 2%;
+        }
+    }
+
+    .card{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 365px;
+        
+
+        &__div{
+            display: flex;
+            width: 100%;
+
+            &__img{
+                width: 100%;
+            }
+        }
+
+        &__article{
+            display: flex;
+            flex-direction: column;
+            padding: 5%;
+            background-color: #542424;
+            color: #be9782;
+
+            &__h2{
+                text-align: center;
+            }
+
+            &__para{
+
+            }
+
+            &__div{
+
+                display: flex;
+                justify-content: space-between;
+                &__tri{
+
+                }
+
+                &__prix{
+
+                }
+            }
+        }
+    }
+}

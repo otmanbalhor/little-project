@@ -18,6 +18,7 @@ const header = document.querySelector("header");
 const divCheckPan = ElementClass('div','check-panier');
 const divHeader = ElementClass('div', 'title-logo');
 const logo = ElementClass('img', 'title-logo__logo');
+logo.src = "images/logolittleproject.jpg";
 const title = ElementClass('h1', 'title-logo__title');
 title.innerText = 'SugarCraft Delights';
 
@@ -59,11 +60,11 @@ bakery.forEach(element => {
     const img = ElementClass('img', 'card__div__img');
     img.src = element.picture;
     const article = ElementClass('article', 'card__article');
-    const h2article = ElementClass('h2', 'card__article_h1');
+    const h2article = ElementClass('h2', 'card__article__h2');
     h2article.innerText = element.name;
     const para = ElementClass('p', 'card__article__para');
     para.innerText = element.description;
-    const divtriprix = ElementClass('div', 'card__article__dib')
+    const divtriprix = ElementClass('div', 'card__article__div')
     const btnTri = ElementClass('button', 'card__article__div__tri')
     btnTri.innerHTML = element.category;
     const prix = ElementClass('p', 'card__article__div__prix');
@@ -76,8 +77,9 @@ bakery.forEach(element => {
     article.append(h2article);
     article.append(para);
     article.append(divtriprix);
-    divtriprix.append(btnTri);
     divtriprix.append(prix);
+    divtriprix.append(btnTri);
+    
 
     btnTri.addEventListener('click', function () {
         tri(element.category);

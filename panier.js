@@ -21,7 +21,7 @@ const paraPopup = document.createElement('p');
 paraPopup.innerText=`Your basket is empty`;
 
 const buttonPopup = document.createElement('button');
-buttonPopup.innerText ='delete basket';
+buttonPopup.innerText ='Close basket';
 buttonPopup.id = "closePopup"
 
 const closePopup = buttonPopup;
@@ -29,7 +29,7 @@ const closePopup = buttonPopup;
 
 panierLogo.addEventListener('click', () => {
 
-    popupPanier.style.display = '';
+    popupPanier.style.display = 'block';
 });
 
 closePopup.addEventListener('click', () => {
